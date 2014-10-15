@@ -2,18 +2,21 @@
 
 
 var URL = 'https://blazing-inferno-3216.firebaseio.com';
+
 angular.module('parabibo.service', [])
 .factory('Posts', function($firebase){
-  return {
-    all: function(posts){
-      var ref = new Firebase(URL);
-      var phonesRef = ref.child('phones');
-      phonesRef.on('child_added', function(snapshot){
-        var phone = snapshot.val();
-        console.log(phone);
-        posts.push(phone);
-      });
-    }
-  }
+  var ref = new Firebase(URL);
+  console.log('$firebase(ref.child(phones))');
+ 
 
+  return {
+    all: function(){
+      var sync = $firebase(ref.child('phones'));
+      return sync.$asArray();
+    },
+    byId: function(id){
+      var sync = $firebase(ref.child('phones'));
+      return sync.$asArray().$getRecord(id);
+    }
+  };
 });

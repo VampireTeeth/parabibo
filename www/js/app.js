@@ -18,11 +18,17 @@ angular.module('parabibo', ['ionic', 'firebase','parabibo.controller', 'parabibo
     .state('app', {
       abstract: true,
       url: '',
-      templateUrl: 'templates/tabs.html',
+      templateUrl: 'templates/tabs.html'
     })
     .state('app.posts', {
       abstract: true,
       url: '/posts',
+      views: {
+        'main': {
+          template: '<ion-nav-view></ion-nav-view>'
+        }
+      }
+      
     })
     .state('app.settings', {
       url: '/settings',
@@ -36,7 +42,7 @@ angular.module('parabibo', ['ionic', 'firebase','parabibo.controller', 'parabibo
     .state('app.posts.index', {
       url: '',
       views:{
-        'main@app': {
+        '': {
           templateUrl: 'templates/posts.html',
           controller: 'PostsCtrl'
         }
@@ -45,7 +51,7 @@ angular.module('parabibo', ['ionic', 'firebase','parabibo.controller', 'parabibo
     .state('app.posts.detail', {
       url: '/:postId',
       views: {
-        'main@app':{
+        '':{
           templateUrl: 'templates/post-detail.html',
           controller: 'PostDetailCtrl'
         }
