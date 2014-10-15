@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('parabibo', ['ionic', 'firebase','parabibo.controller', 'parabibo.service'])
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $location) {
+  $location.path('#/posts')
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -23,12 +24,6 @@ angular.module('parabibo', ['ionic', 'firebase','parabibo.controller', 'parabibo
     .state('app.posts', {
       abstract: true,
       url: '/posts',
-      views: {
-        'main': {
-          template: '<ion-nav-view></ion-nav-view>'
-        }
-      }
-      
     })
     .state('app.settings', {
       url: '/settings',
@@ -42,7 +37,7 @@ angular.module('parabibo', ['ionic', 'firebase','parabibo.controller', 'parabibo
     .state('app.posts.index', {
       url: '',
       views:{
-        '': {
+        'main@app': {
           templateUrl: 'templates/posts.html',
           controller: 'PostsCtrl'
         }
@@ -51,7 +46,7 @@ angular.module('parabibo', ['ionic', 'firebase','parabibo.controller', 'parabibo
     .state('app.posts.detail', {
       url: '/:postId',
       views: {
-        '':{
+        'main@app':{
           templateUrl: 'templates/post-detail.html',
           controller: 'PostDetailCtrl'
         }
