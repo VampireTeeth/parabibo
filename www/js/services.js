@@ -7,7 +7,6 @@ angular.module('parabibo.service', [])
 .factory('Posts', function($firebase){
   var ref = new Firebase(URL);
   console.log('$firebase(ref.child(phones))');
- 
 
   return {
     all: function(){

@@ -8,6 +8,6 @@ angular.module('parabibo.controller', [])
 })
 .controller('PostDetailCtrl', function($scope, $stateParams, Posts){
   console.log($stateParams.postId);
-//  $scope.post = Posts.byId($stateParams.postId);
+  //  $scope.post = Posts.byId($stateParams.postId);
 })
 .controller('SettingsCtrl', function($scope){});
