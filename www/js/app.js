@@ -47,7 +47,7 @@ angular.module('parabibo', ['ionic', 'firebase','parabibo.controller', 'parabibo
     url: '/:postId',
     views: {
       'main@app':{
-        templateUrl: 'templates/post-detail.html',
+        templateUrl: 'templates/post-details.html',
         controller: 'PostDetailCtrl'
       }
     }
