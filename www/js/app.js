@@ -2,7 +2,7 @@
 
 angular.module('parabibo', ['ionic', 'firebase','parabibo.controller', 'parabibo.service'])
 .run(function($ionicPlatform, $location) {
-  $location.path('#/posts')
+  $location.path('#/post')
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -19,22 +19,22 @@ angular.module('parabibo', ['ionic', 'firebase','parabibo.controller', 'parabibo
   .state('app', {
     abstract: true,
     url: '',
-    templateUrl: 'templates/tabs.html'
+    templateUrl: 'templates/main.html'
   })
-  .state('app.posts', {
+  .state('app.post', {
     abstract: true,
-    url: '/posts',
+    url: '/post',
   })
   .state('app.settings', {
     url: '/settings',
     views: {
-      'settings': {
+      'main': {
         templateUrl: 'templates/settings.html',
         controller: 'SettingsCtrl'
       }
     }
   })
-  .state('app.posts.index', {
+  .state('app.post.index', {
     url: '',
     views:{
       'main@app': {
@@ -43,7 +43,7 @@ angular.module('parabibo', ['ionic', 'firebase','parabibo.controller', 'parabibo
       }
     }
   })
-  .state('app.posts.detail', {
+  .state('app.post.details', {
     url: '/:postId',
     views: {
       'main@app':{
@@ -53,5 +53,5 @@ angular.module('parabibo', ['ionic', 'firebase','parabibo.controller', 'parabibo
     }
 
   });
-  $urlRouterProvider.otherwise('/posts');
+  $urlRouterProvider.otherwise('/post');
 });

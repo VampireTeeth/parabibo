@@ -1,10 +1,8 @@
-<ion-tabs class="tabs-icon-top tabs-dark">
+<ion-side-menus>
+  <!-- Center content -->
+  <ion-nav-view name="main"></ion-nav-view>
 
-  <ion-tab title="Posts" icon="ion-home" ui-sref="app.posts.index">
-    <ion-nav-view name="main"></ion-nav-view>
-  </ion-tab>
-
-  <ion-tab title="Settings" icon="ion-ios7-information" ui-sref="app.settings">
-    <ion-nav-view name="settings"></ion-nav-view>
-  </ion-tab>
-</ion-tabs>
+  <!-- Left menu -->
+  <ion-side-menu side="left" width="100">
+  </ion-side-menu>
+</ion-side-menus>

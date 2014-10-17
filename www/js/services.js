@@ -14,8 +14,8 @@ angular.module('parabibo.service', [])
       return sync.$asArray();
     },
     byId: function(id){
-      var sync = $firebase(ref.child('phones'));
-      return sync.$asArray().$getRecord(id);
+      var sync = $firebase(ref.child('phones/' + id));
+      return sync.$asObject();
     }
   };
 });
